@@ -9,7 +9,7 @@ pipeline {
 
     stage('Print dir') {
       steps {
-        sh 'ls -a'
+        bat 'dir'
       }
     }
 
