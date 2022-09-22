@@ -9,7 +9,7 @@ pipeline {
 
     stage('See workplace') {
       steps {
-        bat 'echo %BRANCH_NAME% && echo %CHANGE_TITLE%  && echo %CHANGE_ID% && echo %CHANGE_TARGET% && echo %CHANGE_BRANCH% '
+        bat 'echo %env.BRANCH_NAME% %env.CHANGE_TARGET% %env.CHANGE_BRANCH% '
       }
     }
 
