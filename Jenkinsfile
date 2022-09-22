@@ -7,9 +7,9 @@ pipeline {
       }
     }
 
-    stage('Print dir') {
+    stage('See workplace') {
       steps {
-        bat 'dir'
+        sh 'ls -a'
       }
     }
 
