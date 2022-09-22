@@ -7,9 +7,9 @@ pipeline {
       }
     }
 
-    stage('Build Image') {
+    stage('See workplace') {
       steps {
-        bat 'docker build -t hello-world .'
+        sh 'dir'
       }
     }
 
