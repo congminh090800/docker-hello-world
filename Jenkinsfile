@@ -9,7 +9,7 @@ pipeline {
 
     stage('See workplace') {
       steps {
-        sh 'dir'
+        bat 'dir'
       }
     }
 
