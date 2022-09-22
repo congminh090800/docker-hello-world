@@ -4,7 +4,12 @@ pipeline {
     stage('Git Checkout ') {
       steps {
         git(url: 'https://github.com/congminh090800/docker-hello-world', branch: 'main')
-        sh 'pwd'
+      }
+    }
+
+    stage('Print dir') {
+      steps {
+        sh 'ls -a'
       }
     }
 
