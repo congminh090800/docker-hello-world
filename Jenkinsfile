@@ -3,7 +3,7 @@ pipeline {
   when {
     anyOf {
       branch 'main';
-      tag pattern: '^release-([0-9]+)\.([0-9]+)\.([0-9]+)$', comparator: 'REGEXP';
+      tag(pattern: '^release-([0-9]+)\.([0-9]+)\.([0-9]+)$', comparator: 'REGEXP');
     }
   }
   stages {
