@@ -1,11 +1,9 @@
 pipeline {
   agent any
   when {
-    not {
-      anyOf {
-        branch 'main';
-        tag(pattern: '^release-([0-9]+)\.([0-9]+)\.([0-9]+)$', comparator: 'REGEXP');
-      }
+    anyOf {
+      branch 'main';
+      tag(pattern: '^release-([0-9]+)\.([0-9]+)\.([0-9]+)$', comparator: 'REGEXP');
     }
   }
   stages {
