@@ -1,5 +1,13 @@
 pipeline {
   agent any
+  when {
+    not {
+      anyOf {
+        branch 'main';
+        tag(pattern: '^release-([0-9]+)\.([0-9]+)\.([0-9]+)$', comparator: 'REGEXP');
+      }
+    }
+  }
   stages {
     stage('Git Checkout ') {
       steps {
@@ -9,9 +17,11 @@ pipeline {
 
     stage('See workplace') {
       steps {
-        bat 'echo %env.BRANCH_NAME% %env.CHANGE_TARGET% %env.CHANGE_BRANCH% '
+        bat 'echo branch name: %BRANCH_NAME%'
+        bat 'echo change branch: %CHANGE_BRANCH%'
+        bat 'echo change target: %CHANGE_TARGET%'
+        bat 'echo tag name: %TAG_NAME%'
       }
     }
-
   }
 }
