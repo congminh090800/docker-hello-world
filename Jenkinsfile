@@ -1,15 +1,14 @@
 pipeline {
   agent any
   stages {
-    when {
-      beforeAgent true;
-      anyOf {
-        branch 'main';
-        tag 'release-*';
-      }
-    }
-
     stage('Git Checkout ') {
+      when {
+        beforeAgent true;
+        anyOf {
+          branch 'main';
+          tag 'release-*';
+        }
+      }
       steps {
         git(url: 'https://github.com/congminh090800/docker-hello-world', branch: 'main', changelog: true)
       }
