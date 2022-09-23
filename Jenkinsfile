@@ -1,12 +1,14 @@
 pipeline {
   agent any
-  when {
-    anyOf {
-      branch 'main';
-      tag(pattern: '^release-([0-9]+)\\.([0-9]+)\\.([0-9]+)$', comparator: 'REGEXP');
-    }
-  }
   stages {
+    when {
+      beforeAgent true;
+      anyOf {
+        branch 'main';
+        tag 'release-*';
+      }
+    }
+
     stage('Git Checkout ') {
       steps {
         git(url: 'https://github.com/congminh090800/docker-hello-world', branch: 'main', changelog: true)
